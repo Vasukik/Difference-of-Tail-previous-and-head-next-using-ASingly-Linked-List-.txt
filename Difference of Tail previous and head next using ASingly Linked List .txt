@@ -1,0 +1,49 @@
+
+
+import java.util.*;
+class Node
+{
+  int data;
+  Node pre;
+  Node next;
+}
+public class Main
+{
+  static Node head;
+  static Node last;
+  static Node temp;
+  static Scanner sc = new Scanner (System.in);
+  public static void main (String arg[])
+  {
+	System.out.println ("Enter number of Elements");
+	int n = sc.nextInt ();
+	  create (n);
+	  diff();
+  }
+  static void create (int n)
+  {
+	System.out.println ("Enter the Element up to " + n);
+	head = new Node ();
+	head.data = sc.nextInt ();
+	head.next = null;
+	Node temp = head;
+	for (int i = 2; i <= n; i++)
+	  {
+		Node newnode = new Node ();
+		newnode.data = sc.nextInt ();
+		newnode.next = null;
+		temp.next = newnode;
+		temp = temp.next;
+	  }
+	last = temp;
+
+  }
+  static void diff(){
+      System.out.println("Difference of previous tail node and head nextNode");
+      Node temp = head;
+        while (temp.next != null && temp.next.next != null) {
+            temp = temp.next;
+        }
+        System.out.println("The Difference "+(temp.data-head.next.data));
+}
+}
